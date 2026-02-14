@@ -41,7 +41,7 @@ class InheritanceClassFilter implements PointFilter
      * @param null|string|object $instance Invocation instance or string for static calls
      * @param null|array $arguments Dynamic arguments for method
      */
-    public function matches($class, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($class, $context = null, $instance = null, ?array $arguments = null): bool
     {
         if (!$class instanceof ReflectionClass) {
             return false;

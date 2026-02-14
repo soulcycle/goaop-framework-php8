@@ -59,7 +59,7 @@ class InterceptedConstructorGeneratorTest extends TestCase
             ],
             [
                 ClassWithOptionalArgsConstructor::class,
-                'public function __construct(int $foo = 42, bool $bar = false, \stdClass $instance = null)
+                'public function __construct(int $foo = 42, bool $bar = false, ?\stdClass $instance = null)
                 {
                     parent::__construct(...\array_slice([$foo, $bar, $instance], 0, \func_num_args()));
                 }'

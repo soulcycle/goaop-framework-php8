@@ -42,7 +42,7 @@ class TruePointFilter implements PointFilter
     /**
      * @inheritdoc
      */
-    public function matches($point, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($point, $context = null, $instance = null, ?array $arguments = null): bool
     {
         return true;
     }

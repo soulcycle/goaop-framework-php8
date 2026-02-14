@@ -81,7 +81,7 @@ class AnnotationPointcut implements Pointcut
     /**
      * {@inheritdoc}
      */
-    public function matches($point, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($point, $context = null, $instance = null, ?array $arguments = null): bool
     {
         $expectedClass = $this->expectedClass;
         if (!$point instanceof $expectedClass) {

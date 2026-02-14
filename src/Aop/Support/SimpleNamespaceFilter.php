@@ -50,7 +50,7 @@ class SimpleNamespaceFilter implements PointFilter
     /**
      * {@inheritdoc}
      */
-    public function matches($ns, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($ns, $context = null, $instance = null, ?array $arguments = null): bool
     {
         $isNamespaceIsObject = ($ns === (object) $ns);
 

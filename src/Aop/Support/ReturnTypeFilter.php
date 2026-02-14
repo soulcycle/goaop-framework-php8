@@ -50,7 +50,7 @@ class ReturnTypeFilter implements PointFilter
     /**
      * {@inheritdoc}
      */
-    public function matches($functionLike, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($functionLike, $context = null, $instance = null, ?array $arguments = null): bool
     {
         if (!$functionLike instanceof ReflectionFunctionAbstract) {
             return false;

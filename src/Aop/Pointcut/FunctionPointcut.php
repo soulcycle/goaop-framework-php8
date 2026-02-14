@@ -41,7 +41,7 @@ class FunctionPointcut implements Pointcut
     /**
      * Function matcher constructor
      */
-    public function __construct(string $functionName, PointFilter $returnTypeFilter = null)
+    public function __construct(string $functionName, ?PointFilter $returnTypeFilter = null)
     {
         $this->functionName     = $functionName;
         $this->returnTypeFilter = $returnTypeFilter;
@@ -62,7 +62,7 @@ class FunctionPointcut implements Pointcut
      * @param null|string|object $instance  Invocation instance or string for static calls
      * @param null|array         $arguments Dynamic arguments for method
      */
-    public function matches($function, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($function, $context = null, $instance = null, ?array $arguments = null): bool
     {
         if (!$function instanceof ReflectionFunction) {
             return false;
