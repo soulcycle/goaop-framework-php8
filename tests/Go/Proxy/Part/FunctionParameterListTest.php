@@ -55,49 +55,49 @@ class FunctionParameterListTest extends TestCase
     {
         return [
             [
-                'var_dump', // var_dump(...$vars)
-                1,
-                [
-                    [
-                        'getPassedByReference' => false,
-                        'getVariadic'          => true,
-                        'getName'              => 'vars',
-                        'getDefaultValue'      => null,
-                    ]
-                ]
-            ],
-            [
-                'array_pop', // array_pop(&$stack)
-                1,
-                [
-                    [
-                        'getPassedByReference' => true,
-                        'getVariadic'          => false,
-                        'getName'              => 'stack',
-                        'getDefaultValue'      => null,
-                    ]
-                ]
-            ],
-            [
-                'strcoll', // strcoll($str1, $str2)
+                'var_dump', // var_dump(mixed $value, mixed ...$values)
                 2,
                 [
                     [
                         'getPassedByReference' => false,
                         'getVariadic'          => false,
-                        'getName'              => 'str1',
+                        'getName'              => 'value',
                         'getDefaultValue'      => null,
                     ]
                 ]
             ],
             [
-                'microtime', // microtime($get_as_float = null)
+                'array_pop', // array_pop(array &$array)
+                1,
+                [
+                    [
+                        'getPassedByReference' => true,
+                        'getVariadic'          => false,
+                        'getName'              => 'array',
+                        'getDefaultValue'      => null,
+                    ]
+                ]
+            ],
+            [
+                'strcoll', // strcoll(string $string1, string $string2)
+                2,
+                [
+                    [
+                        'getPassedByReference' => false,
+                        'getVariadic'          => false,
+                        'getName'              => 'string1',
+                        'getDefaultValue'      => null,
+                    ]
+                ]
+            ],
+            [
+                'microtime', // microtime(bool $as_float = false)
                 1,
                 [
                     [
                         'getPassedByReference' => false,
                         'getVariadic'          => false,
-                        'getName'              => 'get_as_float',
+                        'getName'              => 'as_float',
                         'getDefaultValue'      => ValueGenerator::class
                     ]
                 ]

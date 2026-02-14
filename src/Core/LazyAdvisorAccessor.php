@@ -19,6 +19,7 @@ use InvalidArgumentException;
 /**
  * Provides an interface for loading of advisors from the container
  */
+#[\AllowDynamicProperties]
 class LazyAdvisorAccessor
 {
     /**

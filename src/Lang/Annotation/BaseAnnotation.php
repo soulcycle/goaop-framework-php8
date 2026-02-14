@@ -17,6 +17,7 @@ use BadMethodCallException;
 /**
  * @Annotation
  */
+#[\AllowDynamicProperties]
 abstract class BaseAnnotation
 {
     /**

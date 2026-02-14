@@ -39,7 +39,7 @@ trait PropertyInterceptionTrait
             $fieldAccess->ensureScopeRule();
 
             $value = &$fieldAccess->__invoke($this, ClassFieldAccess::READ, $this->__properties[$name]);
-        } elseif (method_exists(get_parent_class(), __FUNCTION__)) {
+        } elseif (method_exists(get_parent_class($this), __FUNCTION__)) {
             $value = parent::__get($name);
         } else {
             trigger_error("Trying to access undeclared property {$name}");
@@ -66,7 +66,7 @@ trait PropertyInterceptionTrait
                 $this->__properties[$name],
                 $value
             );
-        } elseif (method_exists(get_parent_class(), __FUNCTION__)) {
+        } elseif (method_exists(get_parent_class($this), __FUNCTION__)) {
             parent::__set($name, $value);
         } else {
             $this->$name = $value;

@@ -56,7 +56,7 @@ class CFlowBelowMethodPointcut implements PointFilter, Pointcut
      * @param null|string|object $instance  Invocation instance or string for static calls
      * @param null|array         $arguments Dynamic arguments for method
      */
-    public function matches($point, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($point, $context = null, $instance = null, ?array $arguments = null): bool
     {
         // With single parameter (statically) always matches
         if ($instance === null) {

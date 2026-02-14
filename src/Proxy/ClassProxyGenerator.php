@@ -98,9 +98,14 @@ class ClassProxyGenerator
         $introducedInterfaces[] = '\\' . Proxy::class;
 
         if (!empty($interceptedProperties)) {
+            try {
+                $constructor = $originalClass->getConstructor();
+            } catch (\TypeError $e) {
+                $constructor = null;
+            }
             $generatedMethods['__construct'] = new InterceptedConstructorGenerator(
                 $interceptedProperties,
-                $originalClass->getConstructor(),
+                $constructor,
                 $generatedMethods['__construct'] ?? null,
                 $useParameterWidening
             );
@@ -127,7 +132,7 @@ class ClassProxyGenerator
     /**
      * Adds use alias for this class
      */
-    public function addUse(string $use, string $useAlias = null): void
+    public function addUse(string $use, ?string $useAlias = null): void
     {
         $this->generator->addUse($use, $useAlias);
     }

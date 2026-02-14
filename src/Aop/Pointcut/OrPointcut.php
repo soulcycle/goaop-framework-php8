@@ -44,7 +44,7 @@ class OrPointcut extends AndPointcut
      * @param null|string|object $instance  Invocation instance or string for static calls
      * @param null|array         $arguments Dynamic arguments for method
      */
-    public function matches($point, $context = null, $instance = null, array $arguments = null): bool
+    public function matches($point, $context = null, $instance = null, ?array $arguments = null): bool
     {
         return $this->matchPart($this->first, $point, $context, $instance, $arguments)
             || $this->matchPart($this->second, $point, $context, $instance, $arguments);
@@ -58,7 +58,7 @@ class OrPointcut extends AndPointcut
         $point,
         $context = null,
         $instance = null,
-        array $arguments = null
+        ?array $arguments = null
     ): bool {
         $pointcutKind = $pointcut->getKind();
         // We need to recheck filter kind one more time, because of OR syntax

@@ -40,7 +40,7 @@ class CacheWarmer
     /**
      * CacheWarmer constructor.
      */
-    public function __construct(AspectKernel $aspectKernel, OutputInterface $output = null)
+    public function __construct(AspectKernel $aspectKernel, ?OutputInterface $output = null)
     {
         $this->aspectKernel = $aspectKernel;
         $this->output       = $output ?? new NullOutput();
@@ -66,6 +66,9 @@ class CacheWarmer
         $iterator->rewind();
 
         set_error_handler(function ($errno, $errstr, $errfile, $errline) {
+            if ($errno === E_DEPRECATED || $errno === E_USER_DEPRECATED) {
+                return true;
+            }
             throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
         });
 
